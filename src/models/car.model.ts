@@ -6,6 +6,7 @@ export class Car {
         make: { type: String, maxlength: 24 },
         model: { type: String, maxlength: 24 },
         year: { type: String, maxlength: 24 },
+        mileage: { type: String, maxlength: 24 },
         user_id: {
           type: Number,
           key: 'foreign',
@@ -13,7 +14,7 @@ export class Car {
           onDelete: 'cascade',
           onUpdate: 'cascade'
         },
-      }, 'A table to store user car model', []];
+      }, 'A table to store user car info', []];
     }
   
     set model(model: any) {
