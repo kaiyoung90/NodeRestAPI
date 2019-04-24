@@ -34,7 +34,7 @@ Request Payload:
 	"name": "CompTIA A+",
 	"description": "CompTIA A+ is the preferred qualifying credential for technical support and IT operational roles.",
 	"validity": "3",
-	"cert-type-id": 1
+	"cert_type_id": 1
 }
 Response:
 {
@@ -45,7 +45,7 @@ Response:
             "name": "CompTIA A+",
             "description": "CompTIA A+ is the preferred qualifying credential for technical support and IT operational roles.",
             "validity": "3",
-            "cert_type_id": null,
+            "cert_type_id": 1,
             "active": true,
             "created_by": "kyoung",
             "updated_by": null,
@@ -66,7 +66,7 @@ Request Payload:
 {
 	"name": "CertMaster A+",
 	"link": "www.google.com",
-	"cert-id": 1
+	"cert_id": 1
 }
 Response:
 {
@@ -76,7 +76,7 @@ Response:
             "id": 1,
             "name": "CertMaster A+",
             "link": "www.google.com",
-            "cert_id": null,
+            "cert_id": 1,
             "active": true,
             "created_by": "kyoung",
             "updated_by": null,
