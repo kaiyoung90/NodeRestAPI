@@ -1,4 +1,6 @@
-Description: Create a new certification record
+~~POST~~
+
+Description: Create a new certification type record
 Endpoint: http://localhost:3002/api/v1/certtype/create-cert-type
 Method: POST
 Params: none
@@ -34,7 +36,7 @@ Request Payload:
 	"name": "CompTIA A+",
 	"description": "CompTIA A+ is the preferred qualifying credential for technical support and IT operational roles.",
 	"validity": "3",
-	"cert-type-id": 1
+	"cert_type_id": 1
 }
 Response:
 {
@@ -45,7 +47,7 @@ Response:
             "name": "CompTIA A+",
             "description": "CompTIA A+ is the preferred qualifying credential for technical support and IT operational roles.",
             "validity": "3",
-            "cert_type_id": null,
+            "cert_type_id": 1,
             "active": true,
             "created_by": "kyoung",
             "updated_by": null,
@@ -66,7 +68,7 @@ Request Payload:
 {
 	"name": "CertMaster A+",
 	"link": "www.google.com",
-	"cert-id": 1
+	"cert_id": 1
 }
 Response:
 {
@@ -76,12 +78,105 @@ Response:
             "id": 1,
             "name": "CertMaster A+",
             "link": "www.google.com",
-            "cert_id": null,
+            "cert_id": 1,
             "active": true,
             "created_by": "kyoung",
             "updated_by": null,
             "created_at": "2019-04-24T23:17:08.897Z",
             "updated_at": "2019-04-24T23:17:08.897Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+======================================
+~~PUT~~
+
+Description: Update a certification type record
+Endpoint: http://localhost:3002/api/v1/certtype/update-cert-type/id/1
+Method: PUT
+Params: id - id of the certification type
+Request Payload:
+{
+	"field": "General IT"
+}
+Response:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "field": "General IT",
+            "active": true,
+            "created_by": "kyoung",
+            "updated_by": "kyoung",
+            "created_at": "2019-04-24T22:58:39.402Z",
+            "updated_at": "2019-04-24T23:42:47.687Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+-------------------------------
+Description: Update a certification record
+Endpoint: http://localhost:3002/api/v1/cert/update-cert/id/1
+Method: PUT
+Params: id - id of the certification
+Request Payload:
+{
+	"name": "CompTIA A+",
+	"description": "A general computer knowledge and repair course, brought to you by CompTIA!",
+	"validity": "3",
+	"cert_type_id": 1
+}
+Response:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "name": "CompTIA A+",
+            "description": "A general computer knowledge and repair course, brought to you by CompTIA!",
+            "validity": "3",
+            "cert_type_id": 1,
+            "active": true,
+            "created_by": "kyoung",
+            "updated_by": "kyoung",
+            "created_at": "2019-04-24T23:12:54.913Z",
+            "updated_at": "2019-04-24T23:48:19.011Z",
+            "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+-----------------------------------
+Description: Update a resource record
+Endpoint: http://localhost:3002/api/v1/resource/update-resource/id/1
+Method: PUT
+Params: id - id of the resource
+Request Payload:
+{
+	"name": "CertMaster !+",
+	"link": "www.certmaster.com",
+	"cert_id": 1
+}
+Response:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "id": 1,
+            "name": "CertMaster !+",
+            "link": "www.certmaster.com",
+            "cert_id": 1,
+            "active": true,
+            "created_by": "kyoung",
+            "updated_by": "kyoung",
+            "created_at": "2019-04-24T23:17:08.897Z",
+            "updated_at": "2019-04-24T23:52:25.490Z",
             "deleted_at": null
         },
         "statusCode": 200

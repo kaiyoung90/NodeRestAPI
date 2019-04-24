@@ -22,6 +22,12 @@ export class Cert {
         method: 'POST',
         callback: this.createCert,
         requireToken: true,
+      },
+      {
+        route: '/update-cert/id/:id',
+        method: 'PUT',
+        callback: this.updateCert,
+        requireToken: true,
       }
     ]];
   }
@@ -31,6 +37,15 @@ export class Cert {
       console.log('req.body===>', req.body);
       let certCtrl = model.controller;
       let resp = await certCtrl.insert(req, null, null);
+      res.json({ message: 'Success', resp });
+    }
+  }
+
+  updateCert(model: any) {
+    return async (req: Request, res: Response, next: NextFunction) => {
+      console.log('req.body===>', req.body);
+      let certCtrl = model.controller;
+      let resp = await certCtrl.update(req, null, null);
       res.json({ message: 'Success', resp });
     }
   }

@@ -28,6 +28,12 @@ class Resource {
                     method: 'POST',
                     callback: this.createResource,
                     requireToken: true,
+                },
+                {
+                    route: '/update-resource/id/:id',
+                    method: 'PUT',
+                    callback: this.updateResource,
+                    requireToken: true,
                 }
             ]];
     }
@@ -36,6 +42,14 @@ class Resource {
             console.log('req.body===>', req.body);
             let resourceCtrl = model.controller;
             let resp = yield resourceCtrl.insert(req, null, null);
+            res.json({ message: 'Success', resp });
+        });
+    }
+    updateResource(model) {
+        return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            console.log('req.body===>', req.body);
+            let resourceCtrl = model.controller;
+            let resp = yield resourceCtrl.update(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }

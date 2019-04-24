@@ -29,6 +29,12 @@ class Cert {
                     method: 'POST',
                     callback: this.createCert,
                     requireToken: true,
+                },
+                {
+                    route: '/update-cert/id/:id',
+                    method: 'PUT',
+                    callback: this.updateCert,
+                    requireToken: true,
                 }
             ]];
     }
@@ -37,6 +43,14 @@ class Cert {
             console.log('req.body===>', req.body);
             let certCtrl = model.controller;
             let resp = yield certCtrl.insert(req, null, null);
+            res.json({ message: 'Success', resp });
+        });
+    }
+    updateCert(model) {
+        return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            console.log('req.body===>', req.body);
+            let certCtrl = model.controller;
+            let resp = yield certCtrl.update(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }

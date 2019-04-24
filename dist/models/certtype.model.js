@@ -20,6 +20,12 @@ class CertType {
                     method: 'POST',
                     callback: this.createCertType,
                     requireToken: true,
+                },
+                {
+                    route: '/update-cert-type/id/:id',
+                    method: 'PUT',
+                    callback: this.updateCertType,
+                    requireToken: true,
                 }
             ]];
     }
@@ -28,6 +34,14 @@ class CertType {
             console.log('req.body===>', req.body);
             let certTypeCtrl = model.controller;
             let resp = yield certTypeCtrl.insert(req, null, null);
+            res.json({ message: 'Success', resp });
+        });
+    }
+    updateCertType(model) {
+        return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            console.log('req.body===>', req.body);
+            let certTypeCtrl = model.controller;
+            let resp = yield certTypeCtrl.update(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }

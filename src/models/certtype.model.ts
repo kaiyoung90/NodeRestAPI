@@ -13,6 +13,12 @@ export class CertType {
         method: 'POST',
         callback: this.createCertType,
         requireToken: true,
+      },
+      {
+        route: '/update-cert-type/id/:id',
+        method: 'PUT',
+        callback: this.updateCertType,
+        requireToken: true,
       }
     ]];
   }
@@ -22,6 +28,15 @@ export class CertType {
       console.log('req.body===>', req.body);
       let certTypeCtrl = model.controller;
       let resp = await certTypeCtrl.insert(req, null, null);
+      res.json({ message: 'Success', resp });
+    }
+  }
+
+  updateCertType(model: any) {
+    return async (req: Request, res: Response, next: NextFunction) => {
+      console.log('req.body===>', req.body);
+      let certTypeCtrl = model.controller;
+      let resp = await certTypeCtrl.update(req, null, null);
       res.json({ message: 'Success', resp });
     }
   }
