@@ -94,7 +94,7 @@ Response:
 ~~PUT~~
 
 Description: Update a certification type record
-Endpoint: http://localhost:3002/api/v1/certtype/update-cert-type/id/1
+Endpoint: http://localhost:3002/api/v1/certtype/update-cert-type/id/:id
 Method: PUT
 Params: id - id of the certification type
 Request Payload:
@@ -121,7 +121,7 @@ Response:
 
 -------------------------------
 Description: Update a certification record
-Endpoint: http://localhost:3002/api/v1/cert/update-cert/id/1
+Endpoint: http://localhost:3002/api/v1/cert/update-cert/id/:id
 Method: PUT
 Params: id - id of the certification
 Request Payload:
@@ -154,7 +154,7 @@ Response:
 
 -----------------------------------
 Description: Update a resource record
-Endpoint: http://localhost:3002/api/v1/resource/update-resource/id/1
+Endpoint: http://localhost:3002/api/v1/resource/update-resource/id/:id
 Method: PUT
 Params: id - id of the resource
 Request Payload:
