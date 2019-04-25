@@ -35,6 +35,12 @@ class Cert {
                     method: 'PUT',
                     callback: this.updateCert,
                     requireToken: true,
+                },
+                {
+                    route: '/delete-cert/id/:id',
+                    method: 'DELETE',
+                    callback: this.deleteCert,
+                    requireToken: true,
                 }
             ]];
     }
@@ -51,6 +57,14 @@ class Cert {
             console.log('req.body===>', req.body);
             let certCtrl = model.controller;
             let resp = yield certCtrl.update(req, null, null);
+            res.json({ message: 'Success', resp });
+        });
+    }
+    deleteCert(model) {
+        return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            console.log('req.body===>', req.body);
+            let certCtrl = model.controller;
+            let resp = yield certCtrl.remove(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }

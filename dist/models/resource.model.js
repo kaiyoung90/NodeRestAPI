@@ -34,6 +34,12 @@ class Resource {
                     method: 'PUT',
                     callback: this.updateResource,
                     requireToken: true,
+                },
+                {
+                    route: '/delete-resource/id/:id',
+                    method: 'DELETE',
+                    callback: this.deleteResource,
+                    requireToken: true,
                 }
             ]];
     }
@@ -50,6 +56,14 @@ class Resource {
             console.log('req.body===>', req.body);
             let resourceCtrl = model.controller;
             let resp = yield resourceCtrl.update(req, null, null);
+            res.json({ message: 'Success', resp });
+        });
+    }
+    deleteResource(model) {
+        return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            console.log('req.body===>', req.body);
+            let resourceCtrl = model.controller;
+            let resp = yield resourceCtrl.remove(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }

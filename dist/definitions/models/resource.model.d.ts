@@ -4,5 +4,6 @@ export declare class Resource {
     constructor(norm: any);
     createResource(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
     updateResource(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
+    deleteResource(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
     model: any;
 }

@@ -26,6 +26,12 @@ class CertType {
                     method: 'PUT',
                     callback: this.updateCertType,
                     requireToken: true,
+                },
+                {
+                    route: '/delete-cert-type/id/:id',
+                    method: 'DELETE',
+                    callback: this.deleteCertType,
+                    requireToken: true,
                 }
             ]];
     }
@@ -42,6 +48,14 @@ class CertType {
             console.log('req.body===>', req.body);
             let certTypeCtrl = model.controller;
             let resp = yield certTypeCtrl.update(req, null, null);
+            res.json({ message: 'Success', resp });
+        });
+    }
+    deleteCertType(model) {
+        return (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            console.log('req.body===>', req.body);
+            let certTypeCtrl = model.controller;
+            let resp = yield certTypeCtrl.remove(req, null, null);
             res.json({ message: 'Success', resp });
         });
     }

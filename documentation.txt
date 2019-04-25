@@ -94,7 +94,7 @@ Response:
 ~~PUT~~
 
 Description: Update a certification type record
-Endpoint: http://localhost:3002/api/v1/certtype/update-cert-type/id/1
+Endpoint: http://localhost:3002/api/v1/certtype/update-cert-type/id/:id
 Method: PUT
 Params: id - id of the certification type
 Request Payload:
@@ -121,7 +121,7 @@ Response:
 
 -------------------------------
 Description: Update a certification record
-Endpoint: http://localhost:3002/api/v1/cert/update-cert/id/1
+Endpoint: http://localhost:3002/api/v1/cert/update-cert/id/:id
 Method: PUT
 Params: id - id of the certification
 Request Payload:
@@ -154,7 +154,7 @@ Response:
 
 -----------------------------------
 Description: Update a resource record
-Endpoint: http://localhost:3002/api/v1/resource/update-resource/id/1
+Endpoint: http://localhost:3002/api/v1/resource/update-resource/id/:id
 Method: PUT
 Params: id - id of the resource
 Request Payload:
@@ -178,6 +178,79 @@ Response:
             "created_at": "2019-04-24T23:17:08.897Z",
             "updated_at": "2019-04-24T23:52:25.490Z",
             "deleted_at": null
+        },
+        "statusCode": 200
+    }
+}
+
+==================================
+~~DELETE~~
+
+Description: Update a certification type record
+Endpoint: http://localhost:3002/api/v1/cert-type/delete-cert-type/id/:id
+Method: DELETE
+Params: id - id of the certification type
+Request Payload: none
+Response:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "command": "DELETE",
+            "rowCount": 1,
+            "oid": null,
+            "rows": [],
+            "fields": [],
+            "_parsers": [],
+            "RowCtor": null,
+            "rowAsArray": false
+        },
+        "statusCode": 200
+    }
+}
+
+-----------------------------------
+Description: Update a certification record
+Endpoint: http://localhost:3002/api/v1/cert/delete-cert/id/:id
+Method: DELETE
+Params: id - id of the certification
+Request Payload: none
+Response:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "command": "DELETE",
+            "rowCount": 1,
+            "oid": null,
+            "rows": [],
+            "fields": [],
+            "_parsers": [],
+            "RowCtor": null,
+            "rowAsArray": false
+        },
+        "statusCode": 200
+    }
+}
+-----------------------------------
+Description: Update a resource record
+Endpoint: http://localhost:3002/api/v1/resource/delete-resource/id/:id
+Method: DELETE
+Params: id - id of the resource
+Request Payload: none
+Response:
+{
+    "message": "Success",
+    "resp": {
+        "data": {
+            "command": "DELETE",
+            "rowCount": 1,
+            "oid": null,
+            "rows": [],
+            "fields": [],
+            "_parsers": [],
+            "RowCtor": null,
+            "rowAsArray": false
         },
         "statusCode": 200
     }

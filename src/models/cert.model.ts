@@ -28,6 +28,12 @@ export class Cert {
         method: 'PUT',
         callback: this.updateCert,
         requireToken: true,
+      },
+      {
+        route: '/delete-cert/id/:id',
+        method: 'DELETE',
+        callback: this.deleteCert,
+        requireToken: true,
       }
     ]];
   }
@@ -46,6 +52,15 @@ export class Cert {
       console.log('req.body===>', req.body);
       let certCtrl = model.controller;
       let resp = await certCtrl.update(req, null, null);
+      res.json({ message: 'Success', resp });
+    }
+  }
+
+  deleteCert(model: any) {
+    return async (req: Request, res: Response, next: NextFunction) => {
+      console.log('req.body===>', req.body);
+      let certCtrl = model.controller;
+      let resp = await certCtrl.remove(req, null, null);
       res.json({ message: 'Success', resp });
     }
   }

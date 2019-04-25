@@ -4,5 +4,6 @@ export declare class CertType {
     constructor(norm: any);
     createCertType(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
     updateCertType(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
+    deleteCertType(model: any): (req: Request, res: Response, next: NextFunction) => Promise<void>;
     model: any;
 }

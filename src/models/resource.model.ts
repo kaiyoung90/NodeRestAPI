@@ -27,7 +27,14 @@ export class Resource {
         method: 'PUT',
         callback: this.updateResource,
         requireToken: true,
+      },
+      {
+        route: '/delete-resource/id/:id',
+        method: 'DELETE',
+        callback: this.deleteResource,
+        requireToken: true,
       }
+
     ]];
   }
 
@@ -45,6 +52,15 @@ export class Resource {
       console.log('req.body===>', req.body);
       let resourceCtrl = model.controller;
       let resp = await resourceCtrl.update(req, null, null);
+      res.json({ message: 'Success', resp });
+    }
+  }
+
+  deleteResource(model: any) {
+    return async (req: Request, res: Response, next: NextFunction) => {
+      console.log('req.body===>', req.body);
+      let resourceCtrl = model.controller;
+      let resp = await resourceCtrl.remove(req, null, null);
       res.json({ message: 'Success', resp });
     }
   }
